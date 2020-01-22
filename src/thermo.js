@@ -1,5 +1,6 @@
 function Thermostat(){
   this.temperature = 20;
+  this.powerSaveMode = true;
 };
 
 Thermostat.prototype.getCurrentTemperature = function() {
@@ -7,7 +8,16 @@ Thermostat.prototype.getCurrentTemperature = function() {
 };
 
 Thermostat.prototype.up = function() {
-  return this.temperature += 1;
+  if (this.powerSaveMode === true && this.temperature === 25){
+    return this.temperature;
+  }
+  else if (this.powerSaveMode === false && this.temperature === 32){
+    return this.temperature;
+  }
+  else {
+    return this.temperature += 1
+  }
+  
 };
 
 Thermostat.prototype.down = function() {
@@ -18,6 +28,26 @@ Thermostat.prototype.down = function() {
   }
 };
 
+Thermostat.prototype.powerSaveSwitch = function() {
+  this.powerSaveMode = !this.powerSaveMode
+};
+
+
+
+  // if (this.power_save === true)
+  //   if (this.temperature === 25){
+  //     reutrn this.temperature
+  //   }
+  //   else if {this.temperature < 25
+  //     return this.temperature += 1;
+  //   }
+  // else if (this.power_save === false)
+  //   if (this.temperature === 32){
+  //     return this.temperature
+  //   }
+  //   else {
+  //     return this.temperature += 1;
+  //   }
 // function Thermostat(temp) = {
 //   this.temperature = temp;
 // };
