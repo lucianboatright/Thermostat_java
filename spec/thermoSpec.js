@@ -38,6 +38,19 @@ describe ('Thermostate', function() {
     }
     expect(thermostat.getCurrentTemperature()).toEqual(32);  
   })
+  it('when temperature is reset thermostat shows 20', function() {
+    for (var i=0; i<25; i++) {
+      thermostat.up()
+    }
+    thermostat.resetTemp()
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
+  it('if temperature is 17 or lower, energy usage equals low-usage', function () {
+    for (var i=0; i<5; i++) {
+      thermostat.down()
+    }
+    expect(thermostat.energyUsage()).toEqual("low-usage")
+  });
 
 
   // it('when power save mode is [on] maximum temp is (25)', function(){
