@@ -46,12 +46,25 @@ describe ('Thermostate', function() {
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
   it('if temperature is 17 or lower, energy usage equals low-usage', function () {
-    for (var i=0; i<5; i++) {
+    for (var i=0; i<10; i++) {
       thermostat.down()
     }
-    expect(thermostat.energyUsage()).toEqual("low-usage")
+    thermostat.energyUsage()
+    expect(thermostat.usage).toEqual("low-usage")
   });
+  it('if temperature is between 18-25, energy usage equals mid-usage', function () {
+    expect(thermostat.usage).toEqual("mid-usage")
+  });
+  it('if temperature is higher than 25, energy usage equals high-usage', function () {
+    thermostat.powerSaveSwitch()
+    for (var i=0; i<30; i++) {
+      thermostat.up()
+    }           
+    thermostat.energyUsage()
 
+
+    expect(thermostat.usage).toEqual("high-usage")
+  });
 
   // it('when power save mode is [on] maximum temp is (25)', function(){
   //   thermostat.power_save = true
