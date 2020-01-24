@@ -1,7 +1,7 @@
 function Thermostat(){
   this.temperature = 20;
   this.powerSaveMode = true;
-  this.usage = "mid-usage";
+  this.usage ;
 };
 
 Thermostat.prototype.getCurrentTemperature = function() {
@@ -18,7 +18,7 @@ Thermostat.prototype.up = function() {
   else {
     return this.temperature += 1
   }
-  
+  // this.energyUsage();
 };
 
 Thermostat.prototype.down = function() {
@@ -27,6 +27,7 @@ Thermostat.prototype.down = function() {
   } else {
     return this.temperature -= 1;
   }
+  // this.energyUsage();
 };
 
 Thermostat.prototype.powerSaveSwitch = function() {
@@ -40,13 +41,13 @@ Thermostat.prototype.resetTemp = function() {
 Thermostat.prototype.energyUsage = function() {
 
   if (this.temperature < 18){
-    this.usage = 'low-usage';
+    return this.usage = 'low-usage';
   } 
   else if (this.temperature > 17 && this.temperature < 25){
-    this.usage = 'mid-usage';
+    return this.usage = 'mid-usage';
   }
   else {
-    this.usage = 'high-usage';
+    return this.usage = 'high-usage';
   }
 };
 
