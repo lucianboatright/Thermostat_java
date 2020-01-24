@@ -3,8 +3,7 @@ $(document).ready(function(){
 
   var thermostat = new Thermostat();
   updateEnergyUsage()
-
-  $('#temperature').text(thermostat.temperature)
+  updateTemperature()
 
   $('#temp-up').click(function(){
     thermostat.up();
@@ -33,26 +32,37 @@ $(document).ready(function(){
     }
   })
 
-  // if(thermostat.usage === 'low-usage'){
-  //   $('#usage').text(thermostat.usage)
-  // } else if (thermostat.usage === 'mid-usage'){
-  //   $('#usage').text(thermostat.usage)
-  // } else {
-  //   $('#usage').text(thermostat.usage)
-  // }
-
-  // function updateFunction(){ ##### does not work due to calling two in one
-  //   $('#usage').text(thermostat.energyUsage())
-  //   $('#temperature').text(thermostat.temperature);   
-  // }
-
   function updateEnergyUsage() {
-    $('#usage').text(thermostat.energyUsage())
+    $('.usage').text(thermostat.energyUsage())
   }
 
   function updateTemperature(){
-    $('#temperature').text(thermostat.temperature);
+    $('.temperature').text(thermostat.temperature);
+    $('.temperature').attr('id', thermostat.usage);
   }
 
+  $('.showCity').click(function() {
+// Using the core $.ajax() method
+    $.ajax({ 
+      url: "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=6cf212010627f67e2f4d845a80fa8191&units=metric", 
+      dataType : "json",
+    })
+    // Code to run if the request succeeds (is done);
+    // The response is passed to the function   #### jason.main.temp taken from file as shown in browser 
+    .done(function(json) {
+       $('.cityTemp').text(json.main.temp);
+    })
+    console.log('Hello')
+  })
   
 })
+
+
+
+
+
+
+
+
+
+

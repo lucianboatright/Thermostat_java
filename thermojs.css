@@ -5,26 +5,26 @@ body {
   color:8f000;
 }
 
-#temperature {
+.temperature.cityTemp {
   font-size: 100 px;
   font-family: 'Blippo', 'fantesy';
 }
 
-#usage {
+.usage {
   font-family: 'Blippo';
   font-style: fantesy;
 }
 
 
 
-.low-usage {
+#low-usage {
   color: green;
 }
 
-.medium-usage {
+#mid-usage {
   color: orange;
 }
 
-.high-usage {
+#high-usage {
   color: red;
 }
