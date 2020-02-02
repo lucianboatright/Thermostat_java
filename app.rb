@@ -3,7 +3,7 @@ require_relative './lib/thermostat_save'
 
 
 
-class ThermostateSave < Sinatra::base
+class Bowling  < Sinatra::base
 
   enable :sessions
 

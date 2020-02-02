@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+  var firstload
 
   var thermostat = new Thermostat();
   updateEnergyUsage()
@@ -37,9 +38,20 @@ $(document).ready(function(){
   }
 
   function updateTemperature(){
-    $('.temperature').text(thermostat.temperature);
-    $('.temperature').attr('id', thermostat.usage);
-  }
+    if (firstload === null){
+      firstload = "No";
+      var loadTemp = $.jStorage.get("temperature");
+      if (loadTemp > 0) {
+        thermostat.getCurrentTemperature = loadTemp
+      };
+    };
+      
+    $('.temperature').text(thermostat.temperature)
+    $('.temperature').attr('id', thermostat.energyUsage());
+    $.jStorage.set('temperature', thermostat.temperature);
+  };
+
+
 
   $('.showCity').click(function() {
 // Using the core $.ajax() method
@@ -52,10 +64,11 @@ $(document).ready(function(){
     .done(function(json) {
        $('.cityTemp').text(json.main.temp);
     })
-    console.log('Hello')
   })
   
 })
+
+
 
 
 

@@ -14,7 +14,7 @@ require 'rspec'
 require 'connect_and_clear_db'
 
 # Tell capbara to talk to BookmarkManager
-Capybara.app = BookmarkManager
+Capybara.app = 
 
 
 RSpec.configure do |config|

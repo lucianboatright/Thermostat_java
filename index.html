@@ -3,43 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <script src="jquery-3.4.1.js"></script>
-  <script src="src/thermo.js"></script>
-  <link rel="stylesheet" href="thermojs.css">
+  <link rel="stylesheet" href="css/bowlingjs.css">
+  <!-- <script src="js/jquery.min.js"></script> -->
+  <!-- <script type="text/javascript" src="js/jStorage.js"></script> -->
 </head>
-<header id="themo_text">
-   <title>Thermostate</title>
+<header id="bowlingScoreBoard">
+   <title>Bowling Score Board</title>
 </header><!-- /header -->
-  <form action="/take_info" method="post">
-    <body id="body">
-      <section>
-        <h1 class="temperature" name=temperature> # </h1>
-        <h2 class="usage">usage</h2>
-        <p>
-          <div>
-            <button id="temp-up" type="submit">+</button>
-          </div>
-          <div>
-            <button id="temp-down" type="submit">-</button>
-          </div>
-          <div>
-            <button id="temp-reset">reset</button>
-          </div>
-          power saving mode is <span id="power-saving-status">TEST</span>
-          <div>
-            <button id="powerswitch" type="submit" name=powerswitch>PSM</button>
-          </div>
-          <div>
-            <h1 class="cityTemp">#</h1>
-            <button class="showCity" type="submit" name=city> Show City Temp</button>
-          </div>
-        </p>
-      </section>
-      <script src="interface.js" ></script>
-    </body>
-  </form>
+  <body>
+    <div id="scoreCard_container" class="scorecard_container">
+    </div>
+    <div id="scoreCard_controls" class="scorecard_controls">
+    </div>
+    <script src="lib/jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="src/game.js" type="text/javascript"></script>
+    <script src="src/interface.js" type="text/javascript" ></script>
+    <section>
+      <h1 class="temperature"> # </h1>
+      <h2 class="usage">usage</h2>
+      <p>
+        <div>
+          Score Card
+        </div>
+      </p>
+    </section>
+    <script src="src/interface.js" ></script>
+  </body>
 </html>
 
 
 
 
+<!--   <button id="add">Click-me</button>
+
+
+
+  <script>
+    $(function(){
+      $("#add").on('click',function(){
+        var $newItem = $('<li>NEW ITEM</li>')
+        $newItem.appendTo('.items');
+        // alert($(this).text("HELLO"));
+      });
+      $('.items').on('click', 'li', function(){
+        $(this).fadeOut(500);
+      });
+      $('li').click(function(event){
+        console.log('clicked', $(this).text());
+      });
+      // $('li').on('click.logging', function(){
+      //   console.log('A list iem was clicked')
+      // });
+      // $('li').on('click.analytics', function(){
+      //   registerClick();
+      //   doSomethingElse();
+      // });
+      // $('li').off('click.logging');
+    });
+  </script>
+  
+</body>
+</html> -->
