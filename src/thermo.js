@@ -1,3 +1,4 @@
+'use strict';
 function Thermostat(){
   this.temperature = 20;
   this.powerSaveMode = true;
@@ -51,33 +52,3 @@ Thermostat.prototype.energyUsage = function() {
   }
 };
 
-
-
-  // if (this.power_save === true)
-  //   if (this.temperature === 25){
-  //     reutrn this.temperature
-  //   }
-  //   else if {this.temperature < 25
-  //     return this.temperature += 1;
-  //   }
-  // else if (this.power_save === false)
-  //   if (this.temperature === 32){
-  //     return this.temperature
-  //   }
-  //   else {
-  //     return this.temperature += 1;
-  //   }
-// function Thermostat(temp) = {
-//   this.temperature = temp;
-// };
-
-// Thermostat.prototype.show = function(){
-//   return this.temperature;
-// };
-
-// var test_thermo = new Thermostat(20);
-
-// test_thermo.temp();
-// Thermostat.prototype.temperature = function(){
-//   reutrn this.temperature;
-// };
